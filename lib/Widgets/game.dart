@@ -1,8 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:linear_progress_bar/linear_progress_bar.dart';
-import 'package:prosodygame/model/game_model/current_options.dart';
 import 'package:prosodygame/model/game_model/temp_track.dart';
 import '../model/data.dart';
 
