@@ -39,30 +39,13 @@ class _GameState extends State<Game> {
         okButton
       ],
     );
-
+    print(TempTracker.tempTrack);
     return Padding(
       padding: const EdgeInsets.fromLTRB(0,20,0,0),
       child: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Column(
             children: [
-              SizedBox(
-                child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: LinearProgressBar(
-                  backgroundColor: Colors.white,
-                  maxSteps: CurrentOptions.currQuesList.length,
-                  progressType: LinearProgressBar.progressTypeLinear,
-                  currentStep: TempTracker.tempTrack,
-                  progressColor: HexColor("#99b27f"),
-                  valueColor:
-                      AlwaysStoppedAnimation<Color>(HexColor("#99b27f")),
-                  semanticsLabel: "Label",
-                  semanticsValue: "Value",
-                  minHeight: 10,
-                ),
-              ),
-              ),
               SizedBox(
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(0,0,MediaQuery.of(context).size.width*0.1,0),
