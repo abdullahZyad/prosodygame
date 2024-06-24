@@ -13,10 +13,10 @@ import 'package:hexcolor/hexcolor.dart';
 
 void main() async {
   // Data
-  WidgetsFlutterBinding.ensureInitialized();
-  final directory = await getApplicationDocumentsDirectory();
-  Hive.init(directory.path);
-  Data().setMyMap();
+   WidgetsFlutterBinding.ensureInitialized();
+   final directory = await getApplicationDocumentsDirectory();
+   Hive.init(directory.path);
+   Data().setMyMap();
 
   SystemChrome.setPreferredOrientations(
       [

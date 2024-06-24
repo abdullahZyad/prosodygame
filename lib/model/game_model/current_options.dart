@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:prosodygame/model/game_model/check_ansr.dart';
 import 'package:prosodygame/model/game_model/temp_track.dart';
-import 'package:prosodygame/model/prosody-info-service.dart';
+import 'package:prosodygame/model/prosody_info.dart';
 
 class CurrentOptions {
   
@@ -19,8 +19,8 @@ class CurrentOptions {
       Set<String> set1 = {};
       while (set1.length < alb7or.length) {
         for (int i = 0; i < alb7or.length; i++) {
-          set1.add(prosodyInfSer.allAbyat[alb7or[i] - 1]
-              [Random().nextInt(prosodyInfSer.allAbyat[alb7or[i] - 1].length)]);
+          set1.add(ProsodyInf.allAbyat[alb7or[i] - 1]
+              [Random().nextInt(ProsodyInf.allAbyat[alb7or[i] - 1].length)]);
         }
       }
       currQuesList = set1.toList();
@@ -29,14 +29,14 @@ class CurrentOptions {
       Set<String> set2 = {};
       while (set1.length < alb7or.length) {
         for (int i = 0; i < alb7or.length; i++) {
-          set1.add(prosodyInfSer.allAbyat[alb7or[i] - 1]
-              [Random().nextInt(prosodyInfSer.allAbyat[alb7or[i] - 1].length)]);
+          set1.add(ProsodyInf.allAbyat[alb7or[i] - 1]
+              [Random().nextInt(ProsodyInf.allAbyat[alb7or[i] - 1].length)]);
         }
       }
       while (set2.length < diff) {
         for (int i = 0; i < alb7or.length; i++) {
-          set2.add(prosodyInfSer.allAbyat[alb7or[i] - 1]
-              [Random().nextInt(prosodyInfSer.allAbyat[alb7or[i] - 1].length)]);
+          set2.add(ProsodyInf.allAbyat[alb7or[i] - 1]
+              [Random().nextInt(ProsodyInf.allAbyat[alb7or[i] - 1].length)]);
         }
       }
       currQuesList = set1.toList() + set2.toList();
@@ -51,8 +51,8 @@ class CurrentOptions {
       Set<String> set1 = {};
       while (set1.length < numOfQues) {
         for (int i = 0; i < alb7orRandomListPicker.length; i++) {
-          set1.add(prosodyInfSer.allAbyat[alb7orRandomListPicker[i] - 1][
-              Random().nextInt(prosodyInfSer
+          set1.add(ProsodyInf.allAbyat[alb7orRandomListPicker[i] - 1][
+              Random().nextInt(ProsodyInf
                   .allAbyat[alb7orRandomListPicker[i] - 1].length)]);
         }
       }
@@ -82,7 +82,7 @@ class CurrentOptions {
             tempSet
                 .add(CheckAnsr.giveMeTheAnsr(CurrentOptions.currQuesList[i]));
           } else {
-            tempSet.add(prosodyInfSer.prosodiesNames[Random().nextInt(14)]);
+            tempSet.add(ProsodyInf.prosodiesNames[Random().nextInt(14)]);
           }
         }
       }

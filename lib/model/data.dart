@@ -349,6 +349,7 @@ class Data {
     OC2Play = false;
     OC3Play = false;
   }
+  List<String> soundsAll = ["1.mp3","2.mp3","3.mp3","4.mp3","5.mp3","6.mp3","7.mp3","8.mp3","9.mp3","10.mp3","11.mp3","12.mp3","13.mp3","14.mp3","15.mp3"] ;
   List<String> soundsG1 = ["1.mp3","2.mp3","3.mp3","4.mp3","5.mp3"];
   List<String> soundsG2 = ["6.mp3","7.mp3","8.mp3","9.mp3","10.mp3"];
   List<String> soundsG3 = ["11.mp3","12.mp3","13.mp3","14.mp3","15.mp3"];
@@ -357,14 +358,7 @@ class Data {
 
   void playAudio(int i) async {
 
-    if(Data().getNum() == 1) {
-      player.play(AssetSource("sounds/${soundsG1[i]}"));
-    } else if(Data().getNum() == 2) {
-      player.play(AssetSource("sounds/${soundsG2[i]}"));
-    } else if(Data().getNum() == 3) {
-      player.play(AssetSource("sounds/${soundsG3[i]}"));
-    }
-
+    player.play(AssetSource("sounds/${soundsAll[i]}"));
   }
 
   // stop audio

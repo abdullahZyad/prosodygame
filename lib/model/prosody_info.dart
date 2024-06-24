@@ -1,5 +1,5 @@
 
-class prosodyInfSer {
+class ProsodyInf {
   
   static List<String> prosodiesNames =
   ["الطويل", "المديد", "البسيط", "الوافر", "الكامل",

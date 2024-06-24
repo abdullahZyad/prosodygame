@@ -6,6 +6,7 @@ import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:prosodygame/model/game_model/check_ansr.dart';
 import 'package:prosodygame/model/game_model/current_options.dart';
 import 'package:prosodygame/model/game_model/temp_track.dart';
+import 'package:prosodygame/model/prosody_info.dart';
 import '../model/data.dart';
 
 class GameForm extends StatefulWidget {
@@ -87,7 +88,7 @@ class _GameFormState extends State<GameForm> {
               setState(() {
                 Data().setOC1(!Data().getOC1Play());
                 if (!Data().getOC1Play() == false) {
-                  Data().playAudio(Data().giveMeCurrentG().indexOf(
+                  Data().playAudio(ProsodyInf.prosodiesNames.indexOf(
                       CurrentOptions.currAnsrList[TempTracker.tempTrack][0]));
                 } else {
                   Data().stopAudio();
@@ -229,7 +230,7 @@ class _GameFormState extends State<GameForm> {
               setState(() {
                 Data().setOC2(!Data().getOC2Play());
                 if (!Data().getOC2Play() == false) {
-                  Data().playAudio(Data().giveMeCurrentG().indexOf(
+                  Data().playAudio(ProsodyInf.prosodiesNames.indexOf(
                       CurrentOptions.currAnsrList[TempTracker.tempTrack][1]));
                 } else {
                   Data().stopAudio();
@@ -371,7 +372,7 @@ class _GameFormState extends State<GameForm> {
               setState(() {
                 Data().setOC3(!Data().getOC3Play());
                 if (!Data().getOC3Play() == false) {
-                  Data().playAudio(Data().giveMeCurrentG().indexOf(
+                  Data().playAudio(ProsodyInf.prosodiesNames.indexOf(
                       CurrentOptions.currAnsrList[TempTracker.tempTrack][2]));
                 } else {
                   Data().stopAudio();
