@@ -2,7 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'data.dart';
+import '../model/data.dart';
 
 // ignore: must_be_immutable
 class Learning extends StatefulWidget {
@@ -173,7 +173,7 @@ class _LearningState extends State<Learning> {
                   "- طريقة اللعب: -\nتسمع النغمات بالخيارات وتعرضها على البيت"
                       "-ومن هنا أتى اسم علم العروض- "
                       "والنغمة التي تناسب البيت تختارها."
-                      " هناك ثلاث مجموعات كل مجموعة سيكون فيها 5 أنغام (أبحر)."
+                      " هناك ثلاث مجموعات كل مجموعة سيكون فيها 5 بحور."
                   ,
                   style: TextStyle(
                     fontSize: 20,

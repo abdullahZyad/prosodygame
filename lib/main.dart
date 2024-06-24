@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prosodygame/pages/data.dart';
-import 'package:prosodygame/pages/start.dart';
-import 'package:prosodygame/pages/home.dart';
+import 'package:prosodygame/model/data.dart';
+import 'package:prosodygame/Widgets/start.dart';
+import 'package:prosodygame/Widgets/home.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
@@ -51,6 +51,5 @@ void main() async {
       '/home': (context) => const Home(),
     },
   ));
-  // Data().getMyMap().close();
   Hive.close();
 }

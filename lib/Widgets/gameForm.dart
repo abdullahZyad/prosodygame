@@ -2,7 +2,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:hive/hive.dart';
-import 'data.dart';
+import 'package:prosodygame/model/game_model/check_ansr.dart';
+import 'package:prosodygame/model/game_model/current_options.dart';
+import 'package:prosodygame/model/game_model/temp_track.dart';
+import '../model/data.dart';
 
 class GameForm extends StatefulWidget {
   const GameForm({super.key});
@@ -21,7 +24,6 @@ class _GameFormState extends State<GameForm> {
     Hive.openBox("myBox");
 
     List<Widget> chooses = [
-      const SizedBox(height: 20),
       // random bayt widget
       Container(
         decoration: BoxDecoration(
@@ -41,7 +43,7 @@ class _GameFormState extends State<GameForm> {
             child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: AutoSizeText(
-                Data().getRBayt(),
+                CurrentOptions.currQuesList[TempTracker.tempTrack],
                 style: TextStyle(
                     fontSize: 60,
                   color: HexColor("#42272F"),
@@ -64,7 +66,7 @@ class _GameFormState extends State<GameForm> {
               setState(() {
                 Data().setOC1(!Data().getOC1Play());
                 if(!Data().getOC1Play()==false){
-                  Data().playAudio(Data().giveMeCurrentG().indexOf(Data().getListA()[0]));
+                  Data().playAudio(Data().giveMeCurrentG().indexOf(CurrentOptions.currAnsrList[TempTracker.tempTrack][0]));
                 } else {
                   Data().stopAudio();
                 }
@@ -87,16 +89,19 @@ class _GameFormState extends State<GameForm> {
                 Data().resetOCAll();
                 Data().stopAudio();
                 if(!Data().getDisableButton()) {
-                  if(Data().getIndexOfTracker()!=(Data().getIndexTrack().length-1)) {
-                    if(Data().isItTheAnswer(Data().getListA()[0])) {
+                  if(TempTracker().incrable()) {
+                    if(CheckAnsr.isItTheAnswer(
+                      CurrentOptions.currQuesList[TempTracker.tempTrack],
+                       CurrentOptions.currAnsrList[TempTracker.tempTrack][0])) {
                       setState(() {
                         Data().getMyMap().putAt(2, Data().getMyMap().getAt(2)+1);
                         Data().getMyMap().putAt(4, Data().getMyMap().getAt(4)+1);
                         Data().setDisableButtonToT();
                         Data().setFirstOC(Colors.green);
-                        Future.delayed(const Duration(seconds: 1), () {
+                        Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
                             Data().resetOCC(1);
+                            TempTracker().incrTempTrack();
                             Data().changeTheGameForm();
                             Data().setDisableButtonToF();
                           });
@@ -107,7 +112,7 @@ class _GameFormState extends State<GameForm> {
                         Data().getMyMap().putAt(3, Data().getMyMap().getAt(3)+1);
                         Data().getMyMap().putAt(5, Data().getMyMap().getAt(5)+1);
                         Data().setFirstOC(Colors.red);
-                        Future.delayed(const Duration(seconds: 1), () {
+                        Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
                             Data().resetOCC(1);
                           });
@@ -116,7 +121,9 @@ class _GameFormState extends State<GameForm> {
                     }
                   }
                   else {
-                    if(Data().isItTheAnswer(Data().getListA()[0])) {
+                    if(CheckAnsr.isItTheAnswer(
+                      CurrentOptions.currQuesList[TempTracker.tempTrack],
+                       CurrentOptions.currAnsrList[TempTracker.tempTrack][0])) {
                       setState(() {
                         Data().getMyMap().putAt(2, Data().getMyMap().getAt(2)+1);
                         Data().getMyMap().putAt(4, Data().getMyMap().getAt(4)+1);
@@ -125,7 +132,7 @@ class _GameFormState extends State<GameForm> {
                         }
                         Data().setDisableButtonToT();
                         Data().setFirstOC(Colors.green);
-                        Future.delayed(const Duration(seconds: 1), () {
+                        Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
                             Data().resetOCC(1);
                             Data().setDisableButtonToF();
@@ -140,7 +147,7 @@ class _GameFormState extends State<GameForm> {
                         Data().getMyMap().putAt(3, Data().getMyMap().getAt(3)+1);
                         Data().getMyMap().putAt(5, Data().getMyMap().getAt(5)+1);
                         Data().setFirstOC(Colors.red);
-                        Future.delayed(const Duration(seconds: 1), () {
+                        Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
                             Data().resetOCC(1);
                           });
@@ -148,10 +155,7 @@ class _GameFormState extends State<GameForm> {
                       });
                     }
                   }
-                } else {
-                  null;
                 }
-
               },
               style: ElevatedButton.styleFrom(
                   backgroundColor: Data().getFirstOptionColor(),
@@ -164,7 +168,7 @@ class _GameFormState extends State<GameForm> {
                     height: MediaQuery.of(context).size.height*0.08,
                     child: Center(
                       child: AutoSizeText(
-                        Data().getListA()[0],
+                        CurrentOptions.currAnsrList[TempTracker.tempTrack][0],
                         style: TextStyle(
                             fontSize: 25,
                             color: HexColor("#6A2601")
@@ -187,18 +191,18 @@ class _GameFormState extends State<GameForm> {
           IconButton(
             onPressed: () {
               setState(() {
-                Data().setOC2(!Data().getOC2Play());
-                if(!Data().getOC2Play()==false){
-                  Data().playAudio(Data().giveMeCurrentG().indexOf(Data().getListA()[1]));
+                Data().setOC1(!Data().getOC1Play());
+                if(!Data().getOC1Play()==false){
+                  Data().playAudio(Data().giveMeCurrentG().indexOf(CurrentOptions.currAnsrList[TempTracker.tempTrack][1]));
                 } else {
                   Data().stopAudio();
                 }
               });
             },
             icon: Icon(
-              !Data().getOC2Play()?Icons.play_arrow:Icons.stop,
+              !Data().getOC1Play()?Icons.play_arrow:Icons.stop,
               size: 40,
-              color: Data().getOC2Play()? Colors.green:HexColor("#42272F"),
+              color: Data().getOC1Play()? Colors.green:HexColor("#42272F"),
             ),
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
@@ -212,16 +216,19 @@ class _GameFormState extends State<GameForm> {
                 Data().resetOCAll();
                 Data().stopAudio();
                 if(!Data().getDisableButton()) {
-                  if(Data().getIndexOfTracker()!=(Data().getIndexTrack().length-1)) {
-                    if(Data().isItTheAnswer(Data().getListA()[1])) {
+                  if(TempTracker().incrable()) {
+                    if(CheckAnsr.isItTheAnswer(
+                      CurrentOptions.currQuesList[TempTracker.tempTrack],
+                       CurrentOptions.currAnsrList[TempTracker.tempTrack][1])) {
                       setState(() {
                         Data().getMyMap().putAt(2, Data().getMyMap().getAt(2)+1);
                         Data().getMyMap().putAt(4, Data().getMyMap().getAt(4)+1);
                         Data().setDisableButtonToT();
-                        Data().setSecondOC(Colors.green);
-                        Future.delayed(const Duration(seconds: 1), () {
+                        Data().setFirstOC(Colors.green);
+                        Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
-                            Data().resetOCC(2);
+                            Data().resetOCC(1);
+                            TempTracker().incrTempTrack();
                             Data().changeTheGameForm();
                             Data().setDisableButtonToF();
                           });
@@ -231,17 +238,19 @@ class _GameFormState extends State<GameForm> {
                       setState(() {
                         Data().getMyMap().putAt(3, Data().getMyMap().getAt(3)+1);
                         Data().getMyMap().putAt(5, Data().getMyMap().getAt(5)+1);
-                        Data().setSecondOC(Colors.red);
-                        Future.delayed(const Duration(seconds: 1), () {
+                        Data().setFirstOC(Colors.red);
+                        Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
-                            Data().resetOCC(2);
+                            Data().resetOCC(1);
                           });
                         });
                       });
                     }
                   }
                   else {
-                    if(Data().isItTheAnswer(Data().getListA()[1])) {
+                    if(CheckAnsr.isItTheAnswer(
+                      CurrentOptions.currQuesList[TempTracker.tempTrack],
+                       CurrentOptions.currAnsrList[TempTracker.tempTrack][1])) {
                       setState(() {
                         Data().getMyMap().putAt(2, Data().getMyMap().getAt(2)+1);
                         Data().getMyMap().putAt(4, Data().getMyMap().getAt(4)+1);
@@ -249,10 +258,10 @@ class _GameFormState extends State<GameForm> {
                           Data().getMyMap().putAt(Data().getNum()-1, true);
                         }
                         Data().setDisableButtonToT();
-                        Data().setSecondOC(Colors.green);
-                        Future.delayed(const Duration(seconds: 1), () {
+                        Data().setFirstOC(Colors.green);
+                        Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
-                            Data().resetOCC(2);
+                            Data().resetOCC(1);
                             Data().setDisableButtonToF();
                             Data().setGameIsActive(false);
                             Navigator.pop(context);
@@ -264,22 +273,19 @@ class _GameFormState extends State<GameForm> {
                       setState(() {
                         Data().getMyMap().putAt(3, Data().getMyMap().getAt(3)+1);
                         Data().getMyMap().putAt(5, Data().getMyMap().getAt(5)+1);
-                        Data().setSecondOC(Colors.red);
-                        Future.delayed(const Duration(seconds: 1), () {
+                        Data().setFirstOC(Colors.red);
+                        Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
-                            Data().resetOCC(2);
+                            Data().resetOCC(1);
                           });
                         });
                       });
                     }
                   }
-                } else {
-                  null;
                 }
-
               },
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Data().getSecondOptionColor(),
+                  backgroundColor: Data().getFirstOptionColor(),
                   side: BorderSide(width: 2, color: HexColor("#42272F"))
               ),
               child: SizedBox(
@@ -289,7 +295,7 @@ class _GameFormState extends State<GameForm> {
                     height: MediaQuery.of(context).size.height*0.08,
                     child: Center(
                       child: AutoSizeText(
-                        Data().getListA()[1],
+                        CurrentOptions.currAnsrList[TempTracker.tempTrack][1],
                         style: TextStyle(
                             fontSize: 25,
                             color: HexColor("#6A2601")
@@ -304,7 +310,7 @@ class _GameFormState extends State<GameForm> {
           ),
         ],
       ),
-            const SizedBox(height: 15,),
+      const SizedBox(height: 15,),
       // option 3
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -312,18 +318,19 @@ class _GameFormState extends State<GameForm> {
           IconButton(
             onPressed: () {
               setState(() {
-                Data().setOC3(!Data().getOC3Play());
-                if(!Data().getOC3Play()==false){
-                  Data().playAudio(Data().giveMeCurrentG().indexOf(Data().getListA()[2]));
+                Data().setOC1(!Data().getOC1Play());
+                if(!Data().getOC1Play()==false){
+                  Data().playAudio(Data().giveMeCurrentG().indexOf(
+                    CurrentOptions.currAnsrList[TempTracker.tempTrack][2]));
                 } else {
                   Data().stopAudio();
                 }
               });
             },
             icon: Icon(
-              !Data().getOC3Play()?Icons.play_arrow:Icons.stop,
+              !Data().getOC1Play()?Icons.play_arrow:Icons.stop,
               size: 40,
-              color: Data().getOC3Play()? Colors.green:HexColor("#42272F"),
+              color: Data().getOC1Play()? Colors.green:HexColor("#42272F"),
             ),
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
@@ -337,16 +344,19 @@ class _GameFormState extends State<GameForm> {
                 Data().resetOCAll();
                 Data().stopAudio();
                 if(!Data().getDisableButton()) {
-                  if(Data().getIndexOfTracker()!=10) {
-                    if(Data().isItTheAnswer(Data().getListA()[2])) {
+                  if(TempTracker().incrable()) {
+                    if(CheckAnsr.isItTheAnswer(
+                      CurrentOptions.currQuesList[TempTracker.tempTrack],
+                       CurrentOptions.currAnsrList[TempTracker.tempTrack][2])) {
                       setState(() {
                         Data().getMyMap().putAt(2, Data().getMyMap().getAt(2)+1);
                         Data().getMyMap().putAt(4, Data().getMyMap().getAt(4)+1);
                         Data().setDisableButtonToT();
-                        Data().setThirdOC(Colors.green);
-                        Future.delayed(const Duration(seconds: 1), () {
+                        Data().setFirstOC(Colors.green);
+                        Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
-                            Data().resetOCC(3);
+                            Data().resetOCC(1);
+                            TempTracker().incrTempTrack();
                             Data().changeTheGameForm();
                             Data().setDisableButtonToF();
                           });
@@ -356,17 +366,19 @@ class _GameFormState extends State<GameForm> {
                       setState(() {
                         Data().getMyMap().putAt(3, Data().getMyMap().getAt(3)+1);
                         Data().getMyMap().putAt(5, Data().getMyMap().getAt(5)+1);
-                        Data().setThirdOC(Colors.red);
-                        Future.delayed(const Duration(seconds: 1), () {
+                        Data().setFirstOC(Colors.red);
+                        Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
-                            Data().resetOCC(3);
+                            Data().resetOCC(1);
                           });
                         });
                       });
                     }
                   }
                   else {
-                    if(Data().isItTheAnswer(Data().getListA()[2])) {
+                    if(CheckAnsr.isItTheAnswer(
+                      CurrentOptions.currQuesList[TempTracker.tempTrack],
+                       CurrentOptions.currAnsrList[TempTracker.tempTrack][2])) {
                       setState(() {
                         Data().getMyMap().putAt(2, Data().getMyMap().getAt(2)+1);
                         Data().getMyMap().putAt(4, Data().getMyMap().getAt(4)+1);
@@ -374,10 +386,10 @@ class _GameFormState extends State<GameForm> {
                           Data().getMyMap().putAt(Data().getNum()-1, true);
                         }
                         Data().setDisableButtonToT();
-                        Data().setThirdOC(Colors.green);
-                        Future.delayed(const Duration(seconds: 1), () {
+                        Data().setFirstOC(Colors.green);
+                        Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
-                            Data().resetOCC(3);
+                            Data().resetOCC(1);
                             Data().setDisableButtonToF();
                             Data().setGameIsActive(false);
                             Navigator.pop(context);
@@ -389,22 +401,19 @@ class _GameFormState extends State<GameForm> {
                       setState(() {
                         Data().getMyMap().putAt(3, Data().getMyMap().getAt(3)+1);
                         Data().getMyMap().putAt(5, Data().getMyMap().getAt(5)+1);
-                        Data().setThirdOC(Colors.red);
-                        Future.delayed(const Duration(seconds: 1), () {
+                        Data().setFirstOC(Colors.red);
+                        Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
-                            Data().resetOCC(3);
+                            Data().resetOCC(1);
                           });
                         });
                       });
                     }
                   }
-                } else {
-                  null;
                 }
-
               },
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Data().getThirdOptionColor(),
+                  backgroundColor: Data().getFirstOptionColor(),
                   side: BorderSide(width: 2, color: HexColor("#42272F"))
               ),
               child: SizedBox(
@@ -414,7 +423,7 @@ class _GameFormState extends State<GameForm> {
                     height: MediaQuery.of(context).size.height*0.08,
                     child: Center(
                       child: AutoSizeText(
-                        Data().getListA()[2],
+                        CurrentOptions.currAnsrList[TempTracker.tempTrack][2],
                         style: TextStyle(
                             fontSize: 25,
                             color: HexColor("#6A2601")
@@ -429,7 +438,18 @@ class _GameFormState extends State<GameForm> {
           ),
         ],
       ),
-      
+      const SizedBox(height: 30,),
+      AutoSizeText(
+        "${Data().getIndexOfTracker()}\\${Data().getIndexTrack().length}",
+        maxLines: 1,
+        maxFontSize: 40,
+        minFontSize: 5,
+        style: const TextStyle(
+          fontSize: 25,
+          color: Colors.white,
+        ),
+        textDirection: TextDirection.rtl,
+      )
     ];
 
     return SingleChildScrollView(

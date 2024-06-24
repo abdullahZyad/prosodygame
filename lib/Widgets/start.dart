@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:hive/hive.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'data.dart';
+import '../model/data.dart';
 
 class Start extends StatefulWidget {
   const Start({super.key});
@@ -36,9 +36,12 @@ class _StartState extends State<Start> {
                     height: MediaQuery.of(context).size.height*0.1,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height*0.3,
+                    height: MediaQuery.of(context).size.height*0.25,
                     width:  MediaQuery.of(context).size.width*0.8,
-                    child: const AutoSizeText("نعم لا", style: TextStyle(fontSize: 25)),
+                    child: Image.asset(
+                      "assets/logo.png",
+                      fit: BoxFit.fitHeight,
+                    ),
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height*0.02,
@@ -84,7 +87,7 @@ class _StartState extends State<Start> {
                     width: MediaQuery.of(context).size.width*0.6,
                     child: InkWell(
                         child: const AutoSizeText(
-                          'privacy policy',
+                          'الخصوصية',
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 20
