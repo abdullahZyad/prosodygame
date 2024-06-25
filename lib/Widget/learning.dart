@@ -2,6 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:prosodygame/model/prosody_info.dart';
 import '../model/data.dart';
 
 // ignore: must_be_immutable
@@ -51,7 +52,7 @@ class _LearningState extends State<Learning> {
                     Learning().playAudio(i);
                   },
                   child: AutoSizeText(
-                      Data().getProsodyNames()[i],
+                      ProsodyInf.prosodiesNames[i],
                     style: TextStyle(
                       fontSize: 20,
                       color: HexColor("#6A2601"),
@@ -82,7 +83,7 @@ class _LearningState extends State<Learning> {
                     Learning().playAudio(i);
                   },
                   child: AutoSizeText(
-                      Data().getProsodyNames()[i],
+                      ProsodyInf.prosodiesNames[i],
                     style: TextStyle(
                       fontSize: 20,
                       color: HexColor("#6A2601"),
@@ -112,7 +113,7 @@ class _LearningState extends State<Learning> {
                     Learning().playAudio(i);
                   },
                   child: AutoSizeText(
-                      Data().getProsodyNames()[i],
+                      ProsodyInf.prosodiesNames[i],
                     style: TextStyle(
                       fontSize: 20,
                       color: HexColor("#6A2601"),
@@ -143,7 +144,7 @@ class _LearningState extends State<Learning> {
                     Learning().playAudio(i);
                   },
                   child: AutoSizeText(
-                      Data().getProsodyNames()[i],
+                      ProsodyInf.prosodiesNames[i],
                     style: TextStyle(
                       fontSize: 20,
                       color: HexColor("#6A2601"),
@@ -173,7 +174,6 @@ class _LearningState extends State<Learning> {
                   "- طريقة اللعب: -\nتسمع النغمات بالخيارات وتعرضها على البيت"
                       "-ومن هنا أتى اسم علم العروض- "
                       "والنغمة التي تناسب البيت تختارها."
-                      " هناك ثلاث مجموعات كل مجموعة سيكون فيها 5 بحور."
                   ,
                   style: TextStyle(
                     fontSize: 20,
@@ -227,46 +227,8 @@ class _LearningState extends State<Learning> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: list4,
               ),
-
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      Data().getMyMap().putAt(2, 0);
-                      Data().getMyMap().putAt(3, 0);
-                    });
-                  },
-                  child: AutoSizeText(
-                    "إعادة الاحصائيات",
-                    style: TextStyle(
-                      color: HexColor("#6A2601"),
-                    ),
-                    maxLines: 1,
-                    minFontSize: 5,
-                  )
-              )
-            ],
-          ),
-              ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      Data().getMyMap().putAt(0, false);
-                      Data().getMyMap().putAt(1, false);
-                      Data().getMyMap().putAt(2, 0);
-                      Data().getMyMap().putAt(3, 0);
-
-                    });
-                  },
-                  child: AutoSizeText(
-                    "إعادة تعيين اللعبة",
-                    style: TextStyle(
-                      color: HexColor("#6A2601")
-                    ),
-                    maxLines: 1,
-                    minFontSize: 5,
-                  )
+              SizedBox(
+                height: MediaQuery.of(context).size.height*0.07,
               )
             ],
           ),

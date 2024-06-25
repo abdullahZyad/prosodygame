@@ -64,6 +64,7 @@ class _StartState extends State<Start> {
                   ElevatedButton(
                       onPressed: () {
                         Data().setGameIsActive(false);
+                        Data().setIsSettings(false);
                         Data().resetOCAll();
                         Navigator.pushReplacementNamed(context, '/home');
                       },

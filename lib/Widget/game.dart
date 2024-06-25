@@ -1,7 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:prosodygame/model/game_model/temp_track.dart';
+import 'package:prosodygame/Widget/option_game.dart';
+import 'package:prosodygame/model/audio_service.dart';
 import '../model/data.dart';
 
 class Game extends StatefulWidget {
@@ -37,7 +38,7 @@ class _GameState extends State<Game> {
         okButton
       ],
     );
-    print(TempTracker.tempTrack);
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(0,20,0,0),
       child: SizedBox(
@@ -52,7 +53,7 @@ class _GameState extends State<Game> {
                     child: ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            Data().stopAudio();
+                            AudioSer.stopAudio;
                             Data().setOC1(false);
                             Data().setOC2(false);
                             Data().setOC3(false);
@@ -82,7 +83,7 @@ class _GameState extends State<Game> {
               SizedBox(
                 height: MediaQuery.of(context).size.height*0.8,
                   width: MediaQuery.of(context).size.width,
-                  child: Center(child: Data().getOptions())
+                  child: const Center(child: OptionGame())
               ),
             ]
         ),

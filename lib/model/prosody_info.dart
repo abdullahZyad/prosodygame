@@ -6,19 +6,6 @@ class ProsodyInf {
     "الهَزَج", "الرمل", "السريع", "المنسرح", "الخفيف",
     "المضارع", "المقتضب", "المجتث", "المتقارب", "المتدارك"];
 
-  // الأبحر lists
-  static List<String> g1 =
-  ["الطويل", "المديد", "البسيط", "الوافر", "الكامل"];
-
-  static List<String> g2 =
-  ["الهَزَج", "الرمل", "السريع", "المنسرح", "الخفيف"];
-
-  static List<String> g3 =
-  ["المضارع", "المقتضب", "المجتث", "المتقارب", "المتدارك"];
-
-
-  // abyat lists allabyat[1][المديد][1]
-
   static List<List<String>> allAbyat = [
     abyatG1[0], abyatG1[1], abyatG1[2], abyatG1[3], abyatG1[4],
     abyatG2[0], abyatG2[1], abyatG2[2], abyatG2[3], abyatG2[4],
