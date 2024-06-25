@@ -1,28 +1,12 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:prosodygame/model/audio_service.dart';
 import 'package:prosodygame/model/prosody_info.dart';
-import '../model/data.dart';
 
-// ignore: must_be_immutable
 class Learning extends StatefulWidget {
-  Learning({super.key});
-
-  List<String> sounds =
-    ["1.mp3","2.mp3","3.mp3","4.mp3","5.mp3",
-    "6.mp3","7.mp3","8.mp3","9.mp3","10.mp3",
-    "11.mp3","12.mp3","13.mp3","14.mp3","15.mp3"];
-  static final player = AudioPlayer();
-  // play audio
-  void playAudio(int i) async
-  {
-    stopAudio();
-    player.play(AssetSource("sounds/${sounds[i]}"));
-  }
-  // stop audio
-  void stopAudio() {player.stop();}
-
+  
+  const Learning({super.key});
 
   @override
   State<Learning> createState() => _LearningState();
@@ -49,7 +33,7 @@ class _LearningState extends State<Learning> {
                       side: BorderSide(width: 2, color: HexColor("##42272F"))
               ),
                   onPressed: () {
-                    Learning().playAudio(i);
+                    AudioSer.playAudio(i);
                   },
                   child: AutoSizeText(
                       ProsodyInf.prosodiesNames[i],
@@ -80,7 +64,7 @@ class _LearningState extends State<Learning> {
                       side: BorderSide(width: 2, color: HexColor("##42272F"))
               ),
                   onPressed: () {
-                    Learning().playAudio(i);
+                    AudioSer.playAudio(i);
                   },
                   child: AutoSizeText(
                       ProsodyInf.prosodiesNames[i],
@@ -110,7 +94,7 @@ class _LearningState extends State<Learning> {
                       side: BorderSide(width: 2, color: HexColor("##42272F"))
               ),
                   onPressed: () {
-                    Learning().playAudio(i);
+                    AudioSer.playAudio(i);
                   },
                   child: AutoSizeText(
                       ProsodyInf.prosodiesNames[i],
@@ -141,7 +125,7 @@ class _LearningState extends State<Learning> {
                       side: BorderSide(width: 2, color: HexColor("##42272F"))
               ),
                   onPressed: () {
-                    Learning().playAudio(i);
+                    AudioSer.playAudio(i);
                   },
                   child: AutoSizeText(
                       ProsodyInf.prosodiesNames[i],

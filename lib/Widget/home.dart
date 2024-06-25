@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:prosodygame/Widget/settings.dart';
+import 'package:prosodygame/model/audio_service.dart';
 import 'package:prosodygame/model/game_model/current_options.dart';
 import '../model/data.dart';
 import 'package:iconly/iconly.dart';
@@ -125,11 +126,10 @@ class _HomeState extends State<Home> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Learning().stopAudio();
+                                    AudioSer.stopAudio();
                                     Data().setIsHome(true);
                                     Data().setIsSettings(false);
                                   });
-                                  Learning().stopAudio();
                                 },
                                 style: ElevatedButton.styleFrom(
                                     side: BorderSide(
