@@ -5,7 +5,6 @@ import 'package:prosodygame/Widget/home.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
-// ignore: depend_on_referenced_packages
 import 'package:path_provider/path_provider.dart';
 import 'package:hexcolor/hexcolor.dart';
 
