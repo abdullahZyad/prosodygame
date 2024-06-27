@@ -11,15 +11,8 @@ class Data {
     Hive.openBox("myBox");
     await openHiveBox("myBox");
     if (myMap.toMap().isEmpty) {
-      // levels opener
-      myMap.put(2, false);
-      myMap.put(3, false);
-      // whole scores
-      myMap.put(4, 0);
-      myMap.put(5, 0);
-      // temp scores
-      myMap.put(6,0);
-      myMap.put(7, 0);
+      // to do (what you want to save locally):
+      
     }
   }
   Box getMyMap() {

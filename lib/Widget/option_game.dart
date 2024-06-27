@@ -90,7 +90,7 @@ class _OptionGameState extends State<OptionGame> {
                   AudioSer.playAudio(ProsodyInf.prosodiesNames.indexOf(
                       CurrentOptions.currAnsrList[TempTracker.tempTrack][0]));
                 } else {
-                  AudioSer.stopAudio;
+                  AudioSer.stopAudio();
                 }
               });
             },
@@ -108,7 +108,7 @@ class _OptionGameState extends State<OptionGame> {
           ElevatedButton(
               onPressed: () {
                 Data().resetOCAll();
-                AudioSer.stopAudio;
+                AudioSer.stopAudio();
                 if (!Data().getDisableButton()) {
                   if (TempTracker().incrable()) {
                     if (CheckAnsr.isItTheAnswer(
@@ -116,12 +116,6 @@ class _OptionGameState extends State<OptionGame> {
                         CurrentOptions.currAnsrList[TempTracker.tempTrack]
                             [0])) {
                       setState(() {
-                        Data()
-                            .getMyMap()
-                            .putAt(2, Data().getMyMap().getAt(2) + 1);
-                        Data()
-                            .getMyMap()
-                            .putAt(4, Data().getMyMap().getAt(4) + 1);
                         Data().setDisableButtonToT();
                         Data().setFirstOC(Colors.green);
                         Future.delayed(const Duration(milliseconds: 100), () {
@@ -134,12 +128,6 @@ class _OptionGameState extends State<OptionGame> {
                       });
                     } else {
                       setState(() {
-                        Data()
-                            .getMyMap()
-                            .putAt(3, Data().getMyMap().getAt(3) + 1);
-                        Data()
-                            .getMyMap()
-                            .putAt(5, Data().getMyMap().getAt(5) + 1);
                         Data().setFirstOC(Colors.red);
                         Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
@@ -154,12 +142,6 @@ class _OptionGameState extends State<OptionGame> {
                         CurrentOptions.currAnsrList[TempTracker.tempTrack]
                             [0])) {
                       setState(() {
-                        Data()
-                            .getMyMap()
-                            .putAt(2, Data().getMyMap().getAt(2) + 1);
-                        Data()
-                            .getMyMap()
-                            .putAt(4, Data().getMyMap().getAt(4) + 1);
                         Data().setDisableButtonToT();
                         Data().setFirstOC(Colors.green);
                         Future.delayed(const Duration(milliseconds: 100), () {
@@ -174,12 +156,7 @@ class _OptionGameState extends State<OptionGame> {
                       });
                     } else {
                       setState(() {
-                        Data()
-                            .getMyMap()
-                            .putAt(3, Data().getMyMap().getAt(3) + 1);
-                        Data()
-                            .getMyMap()
-                            .putAt(5, Data().getMyMap().getAt(5) + 1);
+
                         Data().setFirstOC(Colors.red);
                         Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
@@ -228,7 +205,7 @@ class _OptionGameState extends State<OptionGame> {
                   AudioSer.playAudio(ProsodyInf.prosodiesNames.indexOf(
                       CurrentOptions.currAnsrList[TempTracker.tempTrack][1]));
                 } else {
-                  AudioSer.stopAudio;
+                  AudioSer.stopAudio();
                 }
               });
             },
@@ -246,7 +223,7 @@ class _OptionGameState extends State<OptionGame> {
           ElevatedButton(
               onPressed: () {
                 Data().resetOCAll();
-                AudioSer.stopAudio;
+                AudioSer.stopAudio();
                 if (!Data().getDisableButton()) {
                   if (TempTracker().incrable()) {
                     if (CheckAnsr.isItTheAnswer(
@@ -254,12 +231,6 @@ class _OptionGameState extends State<OptionGame> {
                         CurrentOptions.currAnsrList[TempTracker.tempTrack]
                             [1])) {
                       setState(() {
-                        Data()
-                            .getMyMap()
-                            .putAt(2, Data().getMyMap().getAt(2) + 1);
-                        Data()
-                            .getMyMap()
-                            .putAt(4, Data().getMyMap().getAt(4) + 1);
                         Data().setDisableButtonToT();
                         Data().setSecondOC(Colors.green);
                         Future.delayed(const Duration(milliseconds: 100), () {
@@ -272,12 +243,6 @@ class _OptionGameState extends State<OptionGame> {
                       });
                     } else {
                       setState(() {
-                        Data()
-                            .getMyMap()
-                            .putAt(3, Data().getMyMap().getAt(3) + 1);
-                        Data()
-                            .getMyMap()
-                            .putAt(5, Data().getMyMap().getAt(5) + 1);
                         Data().setSecondOC(Colors.red);
                         Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
@@ -292,12 +257,6 @@ class _OptionGameState extends State<OptionGame> {
                         CurrentOptions.currAnsrList[TempTracker.tempTrack]
                             [1])) {
                       setState(() {
-                        Data()
-                            .getMyMap()
-                            .putAt(2, Data().getMyMap().getAt(2) + 1);
-                        Data()
-                            .getMyMap()
-                            .putAt(4, Data().getMyMap().getAt(4) + 1);
                         Data().setDisableButtonToT();
                         Data().setSecondOC(Colors.green);
                         Future.delayed(const Duration(milliseconds: 100), () {
@@ -312,12 +271,6 @@ class _OptionGameState extends State<OptionGame> {
                       });
                     } else {
                       setState(() {
-                        Data()
-                            .getMyMap()
-                            .putAt(3, Data().getMyMap().getAt(3) + 1);
-                        Data()
-                            .getMyMap()
-                            .putAt(5, Data().getMyMap().getAt(5) + 1);
                         Data().setSecondOC(Colors.red);
                         Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
@@ -366,7 +319,7 @@ class _OptionGameState extends State<OptionGame> {
                   AudioSer.playAudio(ProsodyInf.prosodiesNames.indexOf(
                       CurrentOptions.currAnsrList[TempTracker.tempTrack][2]));
                 } else {
-                  AudioSer.stopAudio;
+                  AudioSer.stopAudio();
                 }
               });
             },
@@ -384,7 +337,7 @@ class _OptionGameState extends State<OptionGame> {
           ElevatedButton(
               onPressed: () {
                 Data().resetOCAll();
-                AudioSer.stopAudio;
+                AudioSer.stopAudio();
                 if (!Data().getDisableButton()) {
                   if (TempTracker().incrable()) {
                     if (CheckAnsr.isItTheAnswer(
@@ -392,12 +345,6 @@ class _OptionGameState extends State<OptionGame> {
                         CurrentOptions.currAnsrList[TempTracker.tempTrack]
                             [2])) {
                       setState(() {
-                        Data()
-                            .getMyMap()
-                            .putAt(2, Data().getMyMap().getAt(2) + 1);
-                        Data()
-                            .getMyMap()
-                            .putAt(4, Data().getMyMap().getAt(4) + 1);
                         Data().setDisableButtonToT();
                         Data().setThirdOC(Colors.green);
                         Future.delayed(const Duration(milliseconds: 100), () {
@@ -410,13 +357,6 @@ class _OptionGameState extends State<OptionGame> {
                       });
                     } else {
                       setState(() {
-                        Data()
-                            .getMyMap()
-                            .putAt(3, Data().getMyMap().getAt(3) + 1);
-                        Data()
-                            .getMyMap()
-                            .putAt(5, Data().getMyMap().getAt(5) + 1);
-                        Data().setThirdOC(Colors.red);
                         Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
                             Data().resetOCC(3);
@@ -430,12 +370,6 @@ class _OptionGameState extends State<OptionGame> {
                         CurrentOptions.currAnsrList[TempTracker.tempTrack]
                             [2])) {
                       setState(() {
-                        Data()
-                            .getMyMap()
-                            .putAt(2, Data().getMyMap().getAt(2) + 1);
-                        Data()
-                            .getMyMap()
-                            .putAt(4, Data().getMyMap().getAt(4) + 1);
                         Data().setDisableButtonToT();
                         Data().setThirdOC(Colors.green);
                         Future.delayed(const Duration(milliseconds: 100), () {
@@ -450,12 +384,6 @@ class _OptionGameState extends State<OptionGame> {
                       });
                     } else {
                       setState(() {
-                        Data()
-                            .getMyMap()
-                            .putAt(3, Data().getMyMap().getAt(3) + 1);
-                        Data()
-                            .getMyMap()
-                            .putAt(5, Data().getMyMap().getAt(5) + 1);
                         Data().setThirdOC(Colors.red);
                         Future.delayed(const Duration(milliseconds: 100), () {
                           setState(() {
