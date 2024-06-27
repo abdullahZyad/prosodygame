@@ -118,7 +118,7 @@ class _OptionGameState extends State<OptionGame> {
                       setState(() {
                         Data().setDisableButtonToT();
                         Data().setFirstOC(Colors.green);
-                        Future.delayed(const Duration(milliseconds: 100), () {
+                        Future.delayed(const Duration(milliseconds: 200), () {
                           setState(() {
                             Data().resetOCC(1);
                             TempTracker().incrTempTrack();
@@ -129,7 +129,7 @@ class _OptionGameState extends State<OptionGame> {
                     } else {
                       setState(() {
                         Data().setFirstOC(Colors.red);
-                        Future.delayed(const Duration(milliseconds: 100), () {
+                        Future.delayed(const Duration(milliseconds: 200), () {
                           setState(() {
                             Data().resetOCC(1);
                           });
@@ -144,7 +144,7 @@ class _OptionGameState extends State<OptionGame> {
                       setState(() {
                         Data().setDisableButtonToT();
                         Data().setFirstOC(Colors.green);
-                        Future.delayed(const Duration(milliseconds: 100), () {
+                        Future.delayed(const Duration(milliseconds: 200), () {
                           setState(() {
                             Data().resetOCC(1);
                             Data().setDisableButtonToF();
@@ -158,7 +158,7 @@ class _OptionGameState extends State<OptionGame> {
                       setState(() {
 
                         Data().setFirstOC(Colors.red);
-                        Future.delayed(const Duration(milliseconds: 100), () {
+                        Future.delayed(const Duration(milliseconds: 200), () {
                           setState(() {
                             Data().resetOCC(1);
                           });
@@ -233,7 +233,7 @@ class _OptionGameState extends State<OptionGame> {
                       setState(() {
                         Data().setDisableButtonToT();
                         Data().setSecondOC(Colors.green);
-                        Future.delayed(const Duration(milliseconds: 100), () {
+                        Future.delayed(const Duration(milliseconds: 200), () {
                           setState(() {
                             Data().resetOCC(2);
                             TempTracker().incrTempTrack();
@@ -244,7 +244,7 @@ class _OptionGameState extends State<OptionGame> {
                     } else {
                       setState(() {
                         Data().setSecondOC(Colors.red);
-                        Future.delayed(const Duration(milliseconds: 100), () {
+                        Future.delayed(const Duration(milliseconds: 200), () {
                           setState(() {
                             Data().resetOCC(2);
                           });
@@ -259,7 +259,7 @@ class _OptionGameState extends State<OptionGame> {
                       setState(() {
                         Data().setDisableButtonToT();
                         Data().setSecondOC(Colors.green);
-                        Future.delayed(const Duration(milliseconds: 100), () {
+                        Future.delayed(const Duration(milliseconds: 200), () {
                           setState(() {
                             Data().resetOCC(2);
                             Data().setDisableButtonToF();
@@ -272,7 +272,7 @@ class _OptionGameState extends State<OptionGame> {
                     } else {
                       setState(() {
                         Data().setSecondOC(Colors.red);
-                        Future.delayed(const Duration(milliseconds: 100), () {
+                        Future.delayed(const Duration(milliseconds: 200), () {
                           setState(() {
                             Data().resetOCC(2);
                           });
@@ -347,7 +347,7 @@ class _OptionGameState extends State<OptionGame> {
                       setState(() {
                         Data().setDisableButtonToT();
                         Data().setThirdOC(Colors.green);
-                        Future.delayed(const Duration(milliseconds: 100), () {
+                        Future.delayed(const Duration(milliseconds: 200), () {
                           setState(() {
                             Data().resetOCC(3);
                             TempTracker().incrTempTrack();
@@ -357,7 +357,8 @@ class _OptionGameState extends State<OptionGame> {
                       });
                     } else {
                       setState(() {
-                        Future.delayed(const Duration(milliseconds: 100), () {
+                        Data().setThirdOC(Colors.red);
+                        Future.delayed(const Duration(milliseconds: 200), () {
                           setState(() {
                             Data().resetOCC(3);
                           });
@@ -372,7 +373,7 @@ class _OptionGameState extends State<OptionGame> {
                       setState(() {
                         Data().setDisableButtonToT();
                         Data().setThirdOC(Colors.green);
-                        Future.delayed(const Duration(milliseconds: 100), () {
+                        Future.delayed(const Duration(milliseconds: 200), () {
                           setState(() {
                             Data().resetOCC(3);
                             Data().setDisableButtonToF();
@@ -385,7 +386,7 @@ class _OptionGameState extends State<OptionGame> {
                     } else {
                       setState(() {
                         Data().setThirdOC(Colors.red);
-                        Future.delayed(const Duration(milliseconds: 100), () {
+                        Future.delayed(const Duration(milliseconds: 200), () {
                           setState(() {
                             Data().resetOCC(3);
                           });
@@ -417,18 +418,6 @@ class _OptionGameState extends State<OptionGame> {
               )),
         ],
       ),
- 
-      // AutoSizeText(
-      //   "${TempTracker.tempTrack}\\${CurrentOptions.currAnsrList.length}",
-      //   maxLines: 1,
-      //   maxFontSize: 40,
-      //   minFontSize: 5,
-      //   style: const TextStyle(
-      //     fontSize: 25,
-      //     color: Colors.white,
-      //   ),
-      //   textDirection: TextDirection.rtl,
-      // )
  
     ];
 

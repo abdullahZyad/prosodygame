@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:hive/hive.dart';
+// import 'package:hive/hive.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../model/data.dart';
 
@@ -15,8 +15,8 @@ class Start extends StatefulWidget {
 class _StartState extends State<Start> {
   @override
   Widget build(BuildContext context) {
-    Hive.openBox("myBox");
-    Data().setMyMap();
+    // Hive.openBox("myBox");
+    // Data().setMyMap();
     return SafeArea(
       child: Scaffold(
         body: Stack(

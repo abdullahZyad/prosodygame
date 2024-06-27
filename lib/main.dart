@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:prosodygame/model/data.dart';
+// import 'package:prosodygame/model/data.dart';
 import 'package:prosodygame/Widget/start.dart';
 import 'package:prosodygame/Widget/home.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/services.dart';
-import 'package:hive/hive.dart';
-import 'package:path_provider/path_provider.dart';
+// import 'package:hive/hive.dart';
+// import 'package:path_provider/path_provider.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 // Hello Programmer :)
 
 void main() async {
   // Data
-   WidgetsFlutterBinding.ensureInitialized();
-   final directory = await getApplicationDocumentsDirectory();
-   Hive.init(directory.path);
-   Data().setMyMap();
+  //  WidgetsFlutterBinding.ensureInitialized();
+  //  final directory = await getApplicationDocumentsDirectory();
+  //  Hive.init(directory.path);
+  //  Data().setMyMap();
 
   SystemChrome.setPreferredOrientations(
       [
@@ -50,5 +50,5 @@ void main() async {
       '/home': (context) => const Home(),
     },
   ));
-  Hive.close();
+  // Hive.close();
 }
